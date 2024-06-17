@@ -26,8 +26,8 @@ For more information, please refer to <http://unlicense.org/>
 ]]
 
 _addon.name = 'QuickTrade'
-_addon.author = 'Valok@Asura'
-_addon.version = '1.8.0'
+_addon.author = 'Valok@Asura [forked by Zuri]'
+_addon.version = '1.8.0 [0.1]'
 _addon.command = 'qtr'
 
 require('tables')
@@ -288,6 +288,95 @@ function quicktrade(arg)
 		{id = 4418, name = 'turtle soup', count = 0, stacks = 0, stacksize = 1, ki = "", minimum = 1},
 	}
 
+	local woodworkingSets = {
+		{id = 9412, name = 'woodworking set 25', count = 0, stacks = 0, stacksize = 1},
+		{id = 9413, name = 'woodworking set 45', count = 0, stacks = 0, stacksize = 1},
+		{id = 9414, name = 'woodworking set 65', count = 0, stacks = 0, stacksize = 1},
+		{id = 9415, name = 'woodworking set 70', count = 0, stacks = 0, stacksize = 1},
+		{id = 9416, name = 'woodworking set 76', count = 0, stacks = 0, stacksize = 1},
+		{id = 9417, name = 'woodworking set 80', count = 0, stacks = 0, stacksize = 1},
+		{id = 9418, name = 'woodworking set 84', count = 0, stacks = 0, stacksize = 1},
+		{id = 9419, name = 'woodworking set 91', count = 0, stacks = 0, stacksize = 1},
+		{id = 9420, name = 'woodworking set 94', count = 0, stacks = 0, stacksize = 1},
+	}
+	local smithingSets = {
+		{id = 9421, name = 'smithing set 25', count = 0, stacks = 0, stacksize = 1},
+		{id = 9422, name = 'smithing set 45', count = 0, stacks = 0, stacksize = 1},
+		{id = 9423, name = 'smithing set 65', count = 0, stacks = 0, stacksize = 1},
+		{id = 9424, name = 'smithing set 70', count = 0, stacks = 0, stacksize = 1},
+		{id = 9425, name = 'smithing set 76', count = 0, stacks = 0, stacksize = 1},
+		{id = 9426, name = 'smithing set 80', count = 0, stacks = 0, stacksize = 1},
+		{id = 9427, name = 'smithing set 84', count = 0, stacks = 0, stacksize = 1},
+		{id = 9428, name = 'smithing set 91', count = 0, stacks = 0, stacksize = 1},
+		{id = 9429, name = 'smithing set 94', count = 0, stacks = 0, stacksize = 1},
+	}
+	local goldsmithingSets = {
+		{id = 9430, name = 'goldsmithing set 25', count = 0, stacks = 0, stacksize = 1},
+		{id = 9431, name = 'goldsmithing set 45', count = 0, stacks = 0, stacksize = 1},
+		{id = 9432, name = 'goldsmithing set 65', count = 0, stacks = 0, stacksize = 1},
+		{id = 9433, name = 'goldsmithing set 70', count = 0, stacks = 0, stacksize = 1},
+		{id = 9434, name = 'goldsmithing set 76', count = 0, stacks = 0, stacksize = 1},
+		{id = 9435, name = 'goldsmithing set 80', count = 0, stacks = 0, stacksize = 1},
+		{id = 9436, name = 'goldsmithing set 84', count = 0, stacks = 0, stacksize = 1},
+		{id = 9437, name = 'goldsmithing set 91', count = 0, stacks = 0, stacksize = 1},
+		{id = 9438, name = 'goldsmithing set 94', count = 0, stacks = 0, stacksize = 1},
+	}
+	local clothcraftSets = {
+		{id = 9439, name = 'clothcraft set 25', count = 0, stacks = 0, stacksize = 1},
+		{id = 9440, name = 'clothcraft set 45', count = 0, stacks = 0, stacksize = 1},
+		{id = 9441, name = 'clothcraft set 65', count = 0, stacks = 0, stacksize = 1},
+		{id = 9442, name = 'clothcraft set 70', count = 0, stacks = 0, stacksize = 1},
+		{id = 9443, name = 'clothcraft set 76', count = 0, stacks = 0, stacksize = 1},
+		{id = 9444, name = 'clothcraft set 80', count = 0, stacks = 0, stacksize = 1},
+		{id = 9445, name = 'clothcraft set 84', count = 0, stacks = 0, stacksize = 1},
+		{id = 9446, name = 'clothcraft set 91', count = 0, stacks = 0, stacksize = 1},
+		{id = 9447, name = 'clothcraft set 94', count = 0, stacks = 0, stacksize = 1},
+	}
+	local leathercraftSets = {
+		{id = 9448, name = 'leathercraft set 25', count = 0, stacks = 0, stacksize = 1},
+		{id = 9449, name = 'leathercraft set 45', count = 0, stacks = 0, stacksize = 1},
+		{id = 9450, name = 'leathercraft set 65', count = 0, stacks = 0, stacksize = 1},
+		{id = 9451, name = 'leathercraft set 70', count = 0, stacks = 0, stacksize = 1},
+		{id = 9452, name = 'leathercraft set 76', count = 0, stacks = 0, stacksize = 1},
+		{id = 9453, name = 'leathercraft set 80', count = 0, stacks = 0, stacksize = 1},
+		{id = 9454, name = 'leathercraft set 84', count = 0, stacks = 0, stacksize = 1},
+		{id = 9455, name = 'leathercraft set 91', count = 0, stacks = 0, stacksize = 1},
+		{id = 9456, name = 'leathercraft set 94', count = 0, stacks = 0, stacksize = 1},
+	}
+	local bonecraftSets = {
+		{id = 9457, name = 'bonecraft set 25', count = 0, stacks = 0, stacksize = 1},
+		{id = 9458, name = 'bonecraft set 45', count = 0, stacks = 0, stacksize = 1},
+		{id = 9459, name = 'bonecraft set 65', count = 0, stacks = 0, stacksize = 1},
+		{id = 9460, name = 'bonecraft set 70', count = 0, stacks = 0, stacksize = 1},
+		{id = 9461, name = 'bonecraft set 76', count = 0, stacks = 0, stacksize = 1},
+		{id = 9462, name = 'bonecraft set 80', count = 0, stacks = 0, stacksize = 1},
+		{id = 9463, name = 'bonecraft set 84', count = 0, stacks = 0, stacksize = 1},
+		{id = 9464, name = 'bonecraft set 91', count = 0, stacks = 0, stacksize = 1},
+		{id = 9465, name = 'bonecraft set 94', count = 0, stacks = 0, stacksize = 1},
+	}
+	local alchemySets = {
+		{id = 9466, name = 'alchemy set 25', count = 0, stacks = 0, stacksize = 1},
+		{id = 9467, name = 'alchemy set 45', count = 0, stacks = 0, stacksize = 1},
+		{id = 9468, name = 'alchemy set 65', count = 0, stacks = 0, stacksize = 1},
+		{id = 9469, name = 'alchemy set 70', count = 0, stacks = 0, stacksize = 1},
+		{id = 9470, name = 'alchemy set 76', count = 0, stacks = 0, stacksize = 1},
+		{id = 9471, name = 'alchemy set 80', count = 0, stacks = 0, stacksize = 1},
+		{id = 9472, name = 'alchemy set 84', count = 0, stacks = 0, stacksize = 1},
+		{id = 9473, name = 'alchemy set 91', count = 0, stacks = 0, stacksize = 1},
+		{id = 9474, name = 'alchemy set 94', count = 0, stacks = 0, stacksize = 1},
+	}
+	local cookingSets = {
+		{id = 9475, name = 'cooking set 25', count = 0, stacks = 0, stacksize = 1},
+		{id = 9476, name = 'cooking set 45', count = 0, stacks = 0, stacksize = 1},
+		{id = 9477, name = 'cooking set 65', count = 0, stacks = 0, stacksize = 1},
+		{id = 9478, name = 'cooking set 70', count = 0, stacks = 0, stacksize = 1},
+		{id = 9479, name = 'cooking set 76', count = 0, stacks = 0, stacksize = 1},
+		{id = 9480, name = 'cooking set 80', count = 0, stacks = 0, stacksize = 1},
+		{id = 9481, name = 'cooking set 84', count = 0, stacks = 0, stacksize = 1},
+		{id = 9482, name = 'cooking set 91', count = 0, stacks = 0, stacksize = 1},
+		{id = 9483, name = 'cooking set 94', count = 0, stacks = 0, stacksize = 1},
+	}
+
 	local npcTable = {
 		{name = 'Shami', idTable = sealIDs, tableType = 'Seals', loopable = true, loopWait = 3},
 		{name = 'Ephemeral Moogle', idTable = crystalIDs, tableType = 'Crystals', loopable = true, loopWait = 9},
@@ -326,6 +415,16 @@ function quicktrade(arg)
 		{name = 'Affi', idTable = geasFeteZitahIDs, tableType = "Geas Fete Zi'Tah Items", loopable = false, loopWait = 0},
 		{name = 'Dremi', idTable = geasFeteRuaunIDs, tableType = "Geas Fete Ru'Aun Items", loopable = false, loopWait = 0},
 		{name = 'Shiftrix', idTable = geasFeteReisenjimaIDs, tableType = "Geas Fete Reisenjima Items", loopable = false, loopWait = 0},
+		-- Crafting Sets
+		{name = 'Yek Falimeygo', idTable = alchemySets, tableType = "Alchemy Sets", loopable = true, loopwait = 5},
+		{name = 'Tergil', idTable = bonecraftSets, tableType = "Bonecraft Sets", loopable = true, loopwait = 5},
+		{name = 'Julissois', idTable = clothcraftSets, tableType = "Clothcraft Sets", loopable = true, loopwait = 5},
+		{name = 'Isanie', idTable = cookingSets, tableType = "Cooking Sets", loopable = true, loopwait = 5},
+		{name = 'Puyutete', idTable = goldsmithingSets, tableType = "Goldsmithing Sets", loopable = true, loopwait = 5},
+		{name = 'Wolden-Bolden', idTable = leathercraftSets, tableType = "Leathercraft Sets", loopable = true, loopwait = 5},
+		{name = 'Ore Guzzler', idTable = smithingSets, tableType = "Smithing Sets", loopable = true, loopwait = 5},
+		{name = 'Esvin', idTable = smithingSets, tableType = "Smithing Sets", loopable = true, loopwait = 5},
+		{name = 'Luren', idTable = woodworkingSets, tableType = "Woodworking Sets", loopable = true, loopwait = 5},
 	}
 	
 	local idTable = {}
